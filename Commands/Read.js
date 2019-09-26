@@ -1,3 +1,4 @@
+const notes = require('../notes')
 exports.command = 'read'
 exports.aliases = 'n'
 exports.desc = 'Reads a note'
@@ -9,6 +10,6 @@ exports.builder = {
 }
 }
 exports.handler = function (argv) {
-  console.log('Reading a note')
+  notes.read(argv.title)
 }
 

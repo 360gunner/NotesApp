@@ -89,9 +89,31 @@ const listNotes = function(){
     });
 }}
 
+const read =function(title){
+
+    const notes = loadNotes()
+    var b = true
+    notes.forEach(note => {
+        
+    
+        if ( note.title === title) {
+         
+            console.log(
+                chalk.bold.green( title + ': ') + note.body
+             )
+          b = false
+        }
+    }) 
+    if (b){
+        console.log(chalk.bgRed.bold.black('Note does not exist!'))
+    }
+
+}
+
 module.exports = {
     getNotes: getNotes,
     addNote: addNote,
     removeNote: removeNote,
-    listNotes: listNotes
+    listNotes: listNotes,
+    read: read
 }
